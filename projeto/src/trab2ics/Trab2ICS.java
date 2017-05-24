@@ -19,5 +19,12 @@ public class Trab2ICS {
         // TODO code application logic here
         InstrumentoB instru= new InstrumentoB(70.0f);
         Som som= new Som(instru);
-   }
+        som.setNome("DeuCerto");
+        som.visualiza();
+        try{
+          System.in.read();
+          System.exit(0);
+        }
+     catch(Exception e){};
+    }
 }

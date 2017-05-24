@@ -16,111 +16,109 @@ public class InstrumentoB extends sintese.Dispositivo {
     Ruido ruidoFrequecia;
     
     Random random;
-    InstrumentoB(float duracao){
+    public InstrumentoB(float duracao){
         random = new Random();
         ruidoAmplitude= new Ruido(random.nextFloat(), random.nextFloat(), random.nextFloat());
-        ruidoAmplitude.setDuracao(duracao);
 
         ruidoFrequecia= new Ruido(random.nextFloat(), random.nextFloat(), random.nextFloat());
-        ruidoFrequecia.setDuracao(duracao);
 
         osci= new Oscilador();
         
         osci.setDispositivoAmplitude(ruidoAmplitude);
         osci.setDispositivoFrequencia(ruidoFrequecia);
 
-        osci.setDuracao(duracao);
+        setDuracao(duracao);
         osci.relogio();
         
     }
     
-    InstrumentoB(float duracao, float aA, float fA, float pA, float aF, float fF, float pF){
+    public InstrumentoB(float duracao, float aA, float fA, float pA, float aF, float fF, float pF){
         random = new Random();
         ruidoAmplitude= new Ruido(aA, fA, pA);
-        ruidoAmplitude.setDuracao(duracao);
-
+ 
         ruidoFrequecia= new Ruido(aF, fF, pF);
-        ruidoFrequecia.setDuracao(duracao);
-
+ 
         osci= new Oscilador();
         
         osci.setDispositivoAmplitude(ruidoAmplitude);
         osci.setDispositivoFrequencia(ruidoFrequecia);
 
-        osci.setDuracao(duracao);
+        setDuracao(duracao);
         osci.relogio();
         
     }
 
 
-    float ObterFreqRuidoAmplitude(){
+    public float ObterFreqRuidoAmplitude(){
         return ruidoAmplitude.getFrequencia();
     } 
-    float ObterFaseRuidoAmplitude(){
+    public float ObterFaseRuidoAmplitude(){
         return ruidoAmplitude.getFase();
     } 
-    float ObterDuracaoRuidoAmplitude(){
+    public float ObterDuracaoRuidoAmplitude(){
         return ruidoAmplitude.getDuracao();
     } 
-    float ObterGanhoRuidoAmplitude(){
+    public float ObterGanhoRuidoAmplitude(){
         return ruidoAmplitude.getGanho();
     } 
 
-    float ObterFreqRuidoFrequecia(){
+    public float ObterFreqRuidoFrequecia(){
         return ruidoFrequecia.getFrequencia();
     } 
-    float ObterFaseRuidoFrequecia(){
+    public float ObterFaseRuidoFrequecia(){
         return ruidoFrequecia.getFase();
     } 
-    float ObterDuracaoRuidoFrequecia(){
+    public float ObterDuracaoRuidoFrequecia(){
         return ruidoFrequecia.getDuracao();
     } 
-    float ObterGanhoRuidoFrequecia(){
+    public float ObterGanhoRuidoFrequecia(){
         return ruidoFrequecia.getGanho();
     } 
 
-    void SetFreqRuidoAmplitude(float valor){
+    public void SetFreqRuidoAmplitude(float valor){
         ruidoAmplitude.setFrequencia(valor);
     }
-    void SetFaseRuidoAmplitude(float valor){
+    public void SetFaseRuidoAmplitude(float valor){
         ruidoAmplitude.setFase(valor);
     }
-    void SetDuracaoRuidoAmplitude(float valor){
+    public void SetDuracaoRuidoAmplitude(float valor){
         ruidoAmplitude.setDuracao(valor);
     }
-    void SetGanhoRuidoAmplitude(float valor){
+    public void SetGanhoRuidoAmplitude(float valor){
         ruidoAmplitude.setGanho(valor);
     }
 
-    void SetFreqRuidoFrequecia(float valor){
+    public void SetFreqRuidoFrequecia(float valor){
         ruidoFrequecia.setFrequencia(valor);
     }
-    void SetFaseRuidoFrequecia(float valor){
+    public void SetFaseRuidoFrequecia(float valor){
         ruidoFrequecia.setFase(valor);
     }
-    void SetDuracaoRuidoFrequecia(float valor){
+    public void SetDuracaoRuidoFrequecia(float valor){
         ruidoFrequecia.setDuracao(valor);
     }
-    void SetGanhoRuidoFrequecia(float valor){
+    public void SetGanhoRuidoFrequecia(float valor){
         ruidoFrequecia.setGanho(valor);
     }
     
-    float obterSaida(){
+    public float obterSaida(){
         return osci.getSaida();
     }
-    float obterDuracaoOscilador(){
+    public float obterDuracaoOscilador(){
         return osci.getDuracao();
     }
-    float obterGanhoOscilador(){
+    public float obterGanhoOscilador(){
         return osci.getGanho();
     }
-    float obterDuracao(){
+    public float obterDuracao(){
         return osci.getDuracao();
     }
 
-    void setduracao(float duracao){
+    @Override
+ public final void setDuracao(float duracao){
         ruidoAmplitude.setDuracao(duracao);
         ruidoFrequecia.setDuracao(duracao);
         osci.setDuracao(duracao);
+        duracao= duracao;
     }
 }
